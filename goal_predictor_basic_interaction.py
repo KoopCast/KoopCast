@@ -16,7 +16,9 @@ from torch.utils.data import Dataset, DataLoader
 import matplotlib.pyplot as plt
 from matplotlib import animation
 from scipy.spatial import cKDTree as KDTree
-
+import os, sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+current_dir = str(os.path.dirname(os.path.abspath(__file__)))
 # ===== Utility =====
 def safe_heading(xy: np.ndarray) -> float:
     diffs = np.diff(xy, axis=0)
@@ -271,9 +273,9 @@ def test_and_visualize(model,test_file,H=10,P=30,lane_radius=20,lane_k=32,neighb
 
 # ===== Main =====
 def main():
-    train_dir="/home/jungbbal/waymo_one_shard_npz_all"
+    train_dir=current_dir+"/waymo_one_shard_npz_all"
     train_files=glob.glob(os.path.join(train_dir,"*.npz"))[:400]
-    test_file="/home/jungbbal/koopy/waymo_one_shard_npz_all/1a0c14835a811166.npz"
+    test_file=current_dir+"/waymo_one_shard_npz_all/1a0c14835a811166.npz"
     device="cuda" if torch.cuda.is_available() else "cpu"
     model=train_model(train_files,H=10,P=30,lane_radius=50,neighbor_radius=20,neighbor_k=6,
                       lr=1e-3,epochs=100,device=device,save_path="goal_mlp_neighbors.pt")

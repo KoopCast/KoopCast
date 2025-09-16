@@ -35,12 +35,14 @@ from matplotlib import animation
 import torch
 import torch.nn as nn
 from scipy.spatial import cKDTree as KDTree
-
+import os, sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+current_dir = str(os.path.dirname(os.path.abspath(__file__)))
 # =========================
 # Config
 # =========================
-TRAIN_DIR   = "/home/jungbbal/koopy/waymo_one_shard_npz_all"
-TEST_FILE   = "/home/jungbbal/koopy/waymo/val/fe2dc1e4a17a2c05.npz"
+TRAIN_DIR   = current_dir+"/waymo_one_shard_npz_all"
+TEST_FILE   = current_dir+"/waymo/val/fe2dc1e4a17a2c05.npz"
 GOAL_CKPT   = os.environ.get("GOAL_CKPT", "goal_mlp_gaussian_30.pt")
 KOOPMAN_NPZ = os.environ.get("KOOPMAN_NPZ", "koopman_K_goal_global.npz")
 
@@ -657,7 +659,7 @@ def main():
 
     # 2) Test + video
     test_with_video(K_pack, H, P, include_bias, DEFAULTS['outfile'])
-    VAL_DIR = "/home/jungbbal/koopy/waymo/val"
+    VAL_DIR = current_dir+"/waymo/val"
     evaluate_dir(VAL_DIR, K_pack, H, P, include_bias=include_bias)
 
 if __name__ == "__main__":

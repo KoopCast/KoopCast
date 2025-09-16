@@ -28,7 +28,9 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
-
+import os, sys
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+current_dir = str(os.path.dirname(os.path.abspath(__file__)))
 # ---------------------- Hyperparameters & Defaults ----------------------
 HISTORY_LENGTH_DEFAULT = 8
 PRED_LENGTH_DEFAULT    = 12
@@ -464,8 +466,8 @@ def evaluate(test_file: str, H: int, P: int, mdn: MDN, K: np.ndarray,
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--train_dir', type=str, default='/home/jungbbal/ood/lobby2/biwi_hotel/train')
-    parser.add_argument('--test_file', type=str, default='/home/jungbbal/ood/lobby2/biwi_hotel/test/biwi_hotel.npy')
+    parser.add_argument('--train_dir', type=str, default=current_dir+'/ethucy/biwi_hotel/train')
+    parser.add_argument('--test_file', type=str, default=current_dir+'/ethucy/biwi_hotel/test/biwi_hotel.npy')
     parser.add_argument('--history', type=int, default=HISTORY_LENGTH_DEFAULT)
     parser.add_argument('--pred', type=int, default=PRED_LENGTH_DEFAULT)
     parser.add_argument('--mdn_K', type=int, default=MDN_COMPONENTS_DEFAULT)
@@ -484,7 +486,6 @@ def main():
     parser.add_argument('--neighbor_relative', type=int, default=1)
 
     args = parser.parse_args()
-
     H, P = args.history, args.pred
     maxN  = max(0, int(args.max_neighbors))
     R     = float(args.neighbor_radius)
