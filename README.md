@@ -1,6 +1,6 @@
 # KoopCast
 https://drive.google.com/file/d/1GHmVtzKvNPVzsTqmcZpGHNUxlepvh-oO/view?usp=sharing
-
+To reproduce results similar to the paper: (arxiv_url). Simply extract the folders and files in the same directory as the copied GitHub repo.
 <!--
 **Koopcast/Koopcast** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
