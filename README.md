@@ -1,6 +1,10 @@
 # KoopCast
-https://drive.google.com/file/d/1GHmVtzKvNPVzsTqmcZpGHNUxlepvh-oO/view?usp=sharing
-To reproduce results similar to the paper: (arxiv_url). Simply extract the folders and files in the same directory as the copied GitHub repo.
+## Data Setup (for Reproduction)
+
+Download the dataset bundle from Google Drive and **extract its contents directly into the root of your cloned repository** (the same directory as `README.md`).  
+**Try not to** create an extra top-level folder—merge the folders/files into the repo root.
+
+**Link:** [Google Drive dataset bundle](https://drive.google.com/file/d/1GHmVtzKvNPVzsTqmcZpGHNUxlepvh-oO/view?usp=sharing)
 <!--
 **Koopcast/Koopcast** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
